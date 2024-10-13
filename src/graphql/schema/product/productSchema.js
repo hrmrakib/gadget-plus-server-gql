@@ -2,6 +2,7 @@ import gql from "graphql-tag";
 
 const productSchema = gql`
   type Product {
+    _id: String!
     title: String!
     img: String!
     price: Int!

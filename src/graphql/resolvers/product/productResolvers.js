@@ -1,9 +1,8 @@
-// import Product from "./../../../models/Product";
 import Product from "../../../models/Product.js";
 
 const productResolvers = {
   Query: {
-    products: async () => await Product.find(),
+    products: async () => await Product.find().limit(16),
     product: async (parent, { _id }) => await Product.findById(_id),
   },
 
