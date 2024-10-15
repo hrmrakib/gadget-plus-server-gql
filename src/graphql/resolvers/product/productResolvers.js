@@ -12,8 +12,11 @@ const productResolvers = {
     },
 
     productByCategories: async (parent, { category }) => {
-      console.log(category);
       return await db.collection("products").find({ category }).toArray();
+    },
+
+    collectionType: async (parent, { collectionType }) => {
+      return await db.collection("products").find({ collectionType }).toArray();
     },
   },
 

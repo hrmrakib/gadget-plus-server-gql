@@ -10,6 +10,7 @@ const productSchema = gql`
     description: String!
     brand: String!
     category: String!
+    collectionType: String!
   }
 
   # Query for GET (read) data
@@ -17,6 +18,7 @@ const productSchema = gql`
     products: [Product]
     product(id: ID!): Product
     productByCategories(category: String!): [Product]
+    collectionType(collectionType: String!): [Product]
   }
 
   # TODO: Work in later
