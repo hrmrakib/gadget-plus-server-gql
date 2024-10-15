@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 const productSchema = gql`
   type Product {
-    _id: String!
+    _id: ID!
     title: String!
     img: String!
     price: Int!
@@ -15,7 +15,8 @@ const productSchema = gql`
   # Query for GET (read) data
   type Query {
     products: [Product]
-    product(_id: ID!): Product
+    product(id: ID!): Product
+    productByCategories(category: String!): [Product]
   }
 
   # TODO: Work in later

@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import connectDB from "./src/config/db.js";
 
 //highlight-start
 import { ApolloServer } from "@apollo/server";
@@ -8,6 +7,7 @@ import { buildSubgraphSchema } from "@apollo/subgraph";
 import { expressMiddleware } from "@apollo/server/express4";
 import schemaCollection from "./src/graphql/schema/index.schema.js";
 import resolversCollection from "./src/graphql/resolvers/index.resolvers.js";
+import { dbConnect } from "./src/config/db.js";
 //highlight-end
 
 const port = process.env.PORT || 4000;
@@ -28,7 +28,7 @@ const server = new ApolloServer({
 });
 
 // Connect to the database
-connectDB();
+dbConnect() 
 
 await server.start();
 //highlight-start
